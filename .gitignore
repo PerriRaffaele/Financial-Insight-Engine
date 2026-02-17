@@ -1,0 +1,40 @@
+# --- Python Setup ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Environment Variables (Security) ---
+.env
+.env.local
+.venv
+.venv.local
+
+# --- Data & Vector Database (CRITICAL) ---
+# We do not want to commit the PDFs or the heavy Vector DB to GitHub.
+data/raw_pdfs/*
+data/vector_db/*
+
+# ...But we DO want to keep the folder structure.
+# (See instruction below on how to use .gitkeep)
+!data/raw_pdfs/.gitkeep
+!data/vector_db/.gitkeep
+
+# --- IDE Settings ---
+.vscode/
+.idea/
+*.swp
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Docker ---
+# If you build local images that create temp files
+docker-compose.override.yml
