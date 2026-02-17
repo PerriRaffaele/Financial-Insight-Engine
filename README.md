@@ -59,10 +59,13 @@ This project follows an iterative development path, moving from core logic to pr
 - [x] Establish basic connection between Python (`langchain`) and Ollama.
 
 ### Phase 2: Data Ingestion Pipeline (ETL) 🚧
-- [ ] **PDF Loading:** Implement `PyPDFLoader` to handle complex financial documents.
-- [ ] **Chunking Strategy:** Apply `RecursiveCharacterTextSplitter` with overlap to maintain context across line breaks.
-- [ ] **Vector Storage:** Set up **ChromaDB** to store embeddings locally.
-- [ ] **Embedding Generation:** Process raw text into vectors using `HuggingFaceEmbeddings`.
+
+*Note: Used the "Apple (AAPL) 2023 10-K Annual Report" as raw_pdf*
+
+- [x] **PDF Loading:** Implement `PyPDFLoader` to handle complex financial documents.
+- [x] **Chunking Strategy:** Apply `RecursiveCharacterTextSplitter` with overlap to maintain context across line breaks.
+- [x] **Vector Storage:** Set up **ChromaDB** to store embeddings locally.
+- [x] **Embedding Generation:** Process raw text into vectors using `HuggingFaceEmbeddings`.
 
 ### Phase 3: RAG Logic & Retrieval ⏳
 - [ ] **Retrieval Chain:** Build the logic to fetch the top-k most relevant chunks for a query.
