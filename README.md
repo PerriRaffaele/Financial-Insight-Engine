@@ -48,6 +48,38 @@ Unlike standard RAG solutions that rely on external APIs (OpenAI, Anthropic), th
 
 ---
 
+## 🗺️ Development Roadmap & Status
+
+This project follows an iterative development path, moving from core logic to production-grade deployment.
+
+### Phase 1: Foundation & Local LLM Setup ✅
+- [x] Set up Python environment and Git repository.
+- [x] Configure **Ollama** for local model serving (Llama 3).
+- [x] Verify local inference capabilities via terminal.
+- [x] Establish basic connection between Python (`langchain`) and Ollama.
+
+### Phase 2: Data Ingestion Pipeline (ETL) 🚧
+- [ ] **PDF Loading:** Implement `PyPDFLoader` to handle complex financial documents.
+- [ ] **Chunking Strategy:** Apply `RecursiveCharacterTextSplitter` with overlap to maintain context across line breaks.
+- [ ] **Vector Storage:** Set up **ChromaDB** to store embeddings locally.
+- [ ] **Embedding Generation:** Process raw text into vectors using `HuggingFaceEmbeddings`.
+
+### Phase 3: RAG Logic & Retrieval ⏳
+- [ ] **Retrieval Chain:** Build the logic to fetch the top-k most relevant chunks for a query.
+- [ ] **Prompt Engineering:** Design a "Strict Financial Analyst" system prompt to minimize hallucinations.
+- [ ] **Citation Logic:** Engineer the return object to include source metadata (Page numbers/Filenames).
+
+### Phase 4: User Interface (Frontend) ⏳
+- [ ] **Streamlit Setup:** Initialize the web app structure.
+- [ ] **File Uploader:** Allow users to upload new PDF reports dynamically.
+- [ ] **Chat Interface:** Build the Q&A loop with history memory.
+- [ ] **Source Display:** Visual component to show the "Why" behind the answer (Explainability).
+
+### Phase 5: Containerization & Optimization ⏳
+- [ ] **Dockerization:** Write `Dockerfile` and `docker-compose.yml`.
+- [ ] **Network Isolation:** Ensure containers communicate without external internet access.
+- [ ] **Performance Tuning:** Optimize chunk sizes and retrieval parameters (`k` value) for speed/accuracy balance.
+
 ## 💻 Installation & Usage
 
 ### Prerequisites
@@ -63,3 +95,4 @@ cd financial-rag-system
 
 # 2. Build and Run the Container
 docker-compose up --build
+
