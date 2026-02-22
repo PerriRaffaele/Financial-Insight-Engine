@@ -21,7 +21,12 @@ def load_rag_chain():
     
     print(f"Connecting to Ollama ({MODEL_NAME})...")
     # UPDATED: Using ChatOllama instead of the old Ollama class
+    # Fetch URL from environment variable, default to localhost if running outside Docker
+    ollama_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+
+    print(f"🤖 Connecting to Ollama at {ollama_url} ({MODEL_NAME})...")
     llm = ChatOllama(
+        base_url=ollama_url,
         model=MODEL_NAME,
         temperature=0.2
     )

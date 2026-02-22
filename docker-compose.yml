@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # Container 1: The AI Engine (Ollama)
+  llm-engine:
+    image: ollama/ollama:latest
+    container_name: local_llm_engine
+    volumes:
+      - ollama_models:/root/.ollama  # Persist downloaded models
+    networks:
+      - secure-bank-net
+    ports:
+      - "11434:11434"
+    # To use GPU acceleration (if you have Nvidia setup on Docker), uncomment below:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  # Container 2: The UI and RAG Logic
+  rag-ui:
+    build: .
+    container_name: financial_rag_ui
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data  # Keep your PDFs and VectorDB synced with your host
+    environment:
+      - OLLAMA_BASE_URL=http://llm-engine:11434 # Point to the other container
+    networks:
+      - secure-bank-net
+    depends_on:
+      - llm-engine
+
+# --- SECURITY FEATURE ---
+# This custom network isolates the containers.
+networks:
+  secure-bank-net:
+    driver: bridge
+
+volumes:
+  ollama_models:
