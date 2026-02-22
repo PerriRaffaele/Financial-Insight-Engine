@@ -68,15 +68,15 @@ This project follows an iterative development path, moving from core logic to pr
 - [x] **Embedding Generation:** Process raw text into vectors using `HuggingFaceEmbeddings`.
 
 ### Phase 3: RAG Logic & Retrieval ⏳
-- [ ] **Retrieval Chain:** Build the logic to fetch the top-k most relevant chunks for a query.
-- [ ] **Prompt Engineering:** Design a "Strict Financial Analyst" system prompt to minimize hallucinations.
-- [ ] **Citation Logic:** Engineer the return object to include source metadata (Page numbers/Filenames).
+- [x] **Retrieval Chain:** Build the logic to fetch the top-k most relevant chunks for a query.
+- [x] **Prompt Engineering:** Design a "Strict Financial Analyst" system prompt to minimize hallucinations.
+- [x] **Citation Logic:** Engineer the return object to include source metadata (Page numbers/Filenames).
 
 ### Phase 4: User Interface (Frontend) ⏳
-- [ ] **Streamlit Setup:** Initialize the web app structure.
-- [ ] **File Uploader:** Allow users to upload new PDF reports dynamically.
-- [ ] **Chat Interface:** Build the Q&A loop with history memory.
-- [ ] **Source Display:** Visual component to show the "Why" behind the answer (Explainability).
+- [x] **Streamlit Setup:** Initialize the web app structure.
+- [x] **File Uploader:** Allow users to upload new PDF reports dynamically.
+- [x] **Chat Interface:** Build the Q&A loop with history memory.
+- [x] **Source Display:** Visual component to show the "Why" behind the answer (Explainability).
 
 ### Phase 5: Containerization & Optimization ⏳
 - [ ] **Dockerization:** Write `Dockerfile` and `docker-compose.yml`.

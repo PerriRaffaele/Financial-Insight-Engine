@@ -23,7 +23,7 @@ def load_rag_chain():
     # UPDATED: Using ChatOllama instead of the old Ollama class
     llm = ChatOllama(
         model=MODEL_NAME,
-        temperature=0.0
+        temperature=0.2
     )
 
     template = """You are a strict financial analyst. 
@@ -41,7 +41,10 @@ def load_rag_chain():
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
-        retriever=vector_db.as_retriever(search_kwargs={"k": 3}),
+        retriever=vector_db.as_retriever(
+            search_type="mmr",
+            search_kwargs={"k": 6, "fetch_k": 20}
+        ),
         return_source_documents=True,
         chain_type_kwargs={"prompt": QA_CHAIN_PROMPT}
     )
